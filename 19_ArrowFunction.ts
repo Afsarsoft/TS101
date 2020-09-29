@@ -2,6 +2,7 @@
 //tsc 19_ArrowFunction.ts --target ESNEXT --watch
 
 export { };
+
 // variable, parameter, return value, =>, code
 const hello1 = () => console.log(`hello1, Hello World!`);
 hello1(); //hello1, Hello World!
@@ -63,7 +64,7 @@ console.log(`Result of adding ${num1} and ${num2} is ${result}`);
 //Result of adding 5 and 3 is 8
 
 // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-const combine = (
+const combine1 = (
   input1: number | string,
   input2: number | string
 ): number | string => {
@@ -78,11 +79,38 @@ const combine = (
   return result;
 }
 
-const combineAges = combine(30, 26);
-console.log(`combine 30 & 26 = ${combineAges}`); //56
+const combineAges1 = combine1(30, 26);
+console.log(`combine1 30 & 26 = ${combineAges1}`); //56
 
-const combineNames = combine('Surush', 'Cyrus');
-console.log(`combine Surush & Cyrus = ${combineNames}`); //Surush Cyrus
+const combineNames1 = combine1('Surush', 'Cyrus');
+console.log(`combine1 Surush & Cyrus = ${combineNames1}`); //Surush Cyrus
 
-const combineStuff = combine('Surush', 64);
-console.log(`combine Surush & 64 = ${combineStuff}`); //Surush 64
+const combineStuff1 = combine1('Surush', 64);
+console.log(`combine1 Surush & 64 = ${combineStuff1}`); //Surush 64
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+type Combinable = number | string;
+
+const combine2 = (
+  input1: Combinable,
+  input2: Combinable
+): Combinable => {
+  let result: Combinable;
+
+  if (typeof input1 === 'number' && typeof input2 === 'number') {
+    result = input1 + input2;
+  } else {
+    result = `${input1.toString()} ${input2.toString()}`;
+  }
+
+  return result;
+}
+
+const combineAges2 = combine2(30, 26);
+console.log(`combine2 30 & 26 = ${combineAges2}`); //56
+
+const combineNames2 = combine2('Surush', 'Cyrus');
+console.log(`combine2 Surush & Cyrus = ${combineNames2}`); //Surush Cyrus
+
+const combineStuff2 = combine2('Surush', 64);
+console.log(`combine2 Surush & 64 = ${combineStuff2}`); //Surush 64
